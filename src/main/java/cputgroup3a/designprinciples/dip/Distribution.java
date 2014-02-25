@@ -11,5 +11,13 @@ package cputgroup3a.designprinciples.dip;
  * @author kurvin
  */
 public class Distribution extends Music{
+    
+    
     public Distribution(){};
+    
+    Music m = new Music();
+    
+    public void buySong(String songName, Double songPrice){
+        m.purhcase(songName, songPrice); 
+    }
 }

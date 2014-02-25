@@ -13,13 +13,14 @@ package cputgroup3a.designprinciples.dip;
 
 public class Consumption {
     Music m = new Music();
-    boolean checkSong = false;
+    
    
     public void playSong(String songName){
+        boolean checkSong;
         checkSong = m.searchSong(songName);
             
             if(checkSong == true){
-                System.out.println(songName + "is now playing");
+                System.out.println(songName + ": is now playing");
             }
     }
     
