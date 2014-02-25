@@ -6,6 +6,9 @@
 
 package cputgroup3a.designprinciples.dip;
 
+import cputgroup3a.designprinciples.Consumption;
+import cputgroup3a.designprinciples.Music;
+import cputgroup3a.designprinciples.Distribution;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
