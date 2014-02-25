@@ -17,9 +17,12 @@ import java.util.List;
 public interface MusicService {
     
     static List<MusicService> musicList = new ArrayList();
-    public void buySong();
-    public void playSong();
+    public void buySong(String song, Double price);
+    public void playSong(String song);
     public void display();
     public String getSongName();
+    public String getArtist();
+    public Double getPrice();
+    public boolean search(String song);
 
 }

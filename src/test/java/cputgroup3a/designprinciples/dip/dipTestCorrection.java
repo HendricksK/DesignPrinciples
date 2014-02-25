@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import cputgroup3a.designprinciples.dip.configuration.AppConfig;
+import org.testng.Assert;
 
 /**
  *
@@ -35,9 +36,13 @@ public class dipTestCorrection {
     
     public static MusicService musicService;
     
+    @Test
+    public static void testPlay(){
+        musicService.playSong("Voodoo Chile (Slight Return)");
+    }
     
     @Test
-    public void testDisplay(){
+    public static void testDisplay(){
         musicService = new MusicServiceImpl("Breaking Out, Breaking down","Bullet For My Valentine" ,12.56);
         musicService = new MusicServiceImpl("Stir It Up","Bob Marley" ,12.56);
         musicService.display();
@@ -45,7 +50,9 @@ public class dipTestCorrection {
     
     @Test
     public static void testPurchase(){
-        musicService.buySong();
+        musicService.buySong("Stir It Up", 12.50);
+        musicService.buySong("Brain Washing", 7.50);
+        Assert.assertEquals(12.56, 12.50, 0.3);
     }
 
     @BeforeClass

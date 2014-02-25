@@ -87,7 +87,7 @@ public class Music {
                 } else {
                     System.out.println("Purchase was unsuccesful");
                 }
-            }else {
+            }else if(searchSong(song) == false){
                 System.out.println("The song " + song +" you are trying to purchase is not available for purchase. ");
                 break;
             }
