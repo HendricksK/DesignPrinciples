@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples;
+package cputgroup3a.designprinciples.dip;
 
 /**
  *
