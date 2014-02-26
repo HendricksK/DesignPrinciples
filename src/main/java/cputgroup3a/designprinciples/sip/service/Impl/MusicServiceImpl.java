@@ -6,14 +6,8 @@
 
 package cputgroup3a.designprinciples.sip.service.Impl;
 
-import cputgroup3a.designprinciples.dip.service.MusicService;
-import cputgroup3a.designprinciples.sip.service.MusicConsumptionSip;
-import cputgroup3a.designprinciples.sip.service.MusicDistributionSip;
-
-/**
- *
- * @author kurvin
- */
+import cputgroup3a.designprinciples.sip.MusicConsumptionSip;
+import cputgroup3a.designprinciples.sip.MusicDistributionSip;
 import cputgroup3a.designprinciples.sip.service.MusicServiceSip;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +42,32 @@ public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, M
     }
     
     @Override
-    public void play(){
+    public void play(String name){
+        for (int x = 0; x < songList.size(); x++) {
+            if (songList.get(x).songName.equals(name)) {
+                System.out.println(name + " is now playing.");
+                break;
+            }
+            else System.out.println("The song chosen cannot be found");
+            break;
+        }
         
     }
     
     @Override 
-    public void purchase(){
-        
+    public void purchase(String name, Double amountDue){
+        for (int x = 0; x < songList.size(); x++) {
+            if (songList.get(x).songName.equals(name)) {
+                if (amountDue.equals(songList.get(x).songPrice)) {
+                    System.out.println("Your purchase has been succesful, you will now recieve your download of : " + songList.get(x).songName);
+                    System.out.println("From : " + songList.get(x).artist);
+                    break;
+                } else System.out.println("Purchase was unsuccesful");
+            }else if(search(name) == false){
+                System.out.println("The song " + name +" you are trying to purchase is not available for purchase. ");
+                break;
+            }
+        }
     }
     
     @Override

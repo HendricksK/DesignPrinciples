@@ -56,9 +56,7 @@ public class MusicSip {
                     System.out.println("Your purchase has been succesful, you will now recieve your download of : " + songList.get(x).songName);
                     System.out.println("From : " + songList.get(x).artistName);
                     break;
-                } else {
-                    System.out.println("Purchase was unsuccesful");
-                }
+                } else System.out.println("Purchase was unsuccesful");
             }else if(search(name) == false){
                 System.out.println("The song " + name +" you are trying to purchase is not available for purchase. ");
                 break;

@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.sip.service;
+package cputgroup3a.designprinciples.sip;
+
+import cputgroup3a.designprinciples.sip.service.MusicServiceSip;
 
 /**
  *
  * @author kurvin
  */
 public interface MusicDistributionSip extends MusicServiceSip{
-    void purchase();
+    void purchase(String name, Double amountDue);
 }
