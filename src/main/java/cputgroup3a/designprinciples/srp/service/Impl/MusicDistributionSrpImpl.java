@@ -26,7 +26,10 @@ public class MusicDistributionSrpImpl implements MusicServiceSrp
 
     @Override
     public void displaySongs() {
-        
+        for(int x = 0; x < songList.size(); x++){
+            System.out.println(songList.get(x));
+            x++;
+        }
     }
     
 }
