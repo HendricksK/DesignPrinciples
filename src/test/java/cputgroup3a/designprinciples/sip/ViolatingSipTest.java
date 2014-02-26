@@ -4,23 +4,23 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.dip;
+package cputgroup3a.designprinciples.sip;
 
+import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.Assert;
 
 /**
  *
  * @author kurvin
  */
-public class dipViolationTest {
+public class ViolatingSipTest {
     
-    public dipViolationTest() {
+    public ViolatingSipTest() {
     }
 
     // TODO add test methods here.
@@ -28,38 +28,28 @@ public class dipViolationTest {
     //
     // @Test
     // public void hello() {}
+    static MusicSip m;
+    
     @Test
     public static void testDisplay(){
-        
-        Music m = new Music();
         m.displaySongList();
     }
     
     @Test
-    public static void testPlay(){
-        Consumption c = new Consumption();
-        c.playSong("Always");
-        c.playSong("Bat Country");
-    }
-    
-    @Test
     public static void testPurchase(){
-        Distribution d = new Distribution();
-        d.buySong("Always", 12.56);
-        Assert.assertEquals(12.56, 12.56, 0.0);
+        m.purchase("Neon Cathedral", 7.02);
+        Assert.assertEquals(7.02, 7.05, 0.06);
     }
     
     @Test
-    public static void testFailPurchase(){
-        Distribution d1 = new Distribution();
-        d1.buySong("Indy Kidz", 12.56);
-        //Assert.fail("Failing on purpose");
+    public static void testPlay(){
+        m.play("Is There Any Love?");
     }
-    
+
     @BeforeClass
     public static void setUpClass() throws Exception {
-        Music m = new Music("Killswitch Engage","Always", 12.56);
-        Music m1 = new Music("Avenged Sevenfold", "Bat Country", 10.56);
+        m = new MusicSip("Kid Cudi", "Is There Any Love?", 5.06);
+        m = new MusicSip("Macklmore", "Neon Cathedral", 7.02);
     }
 
     @AfterClass

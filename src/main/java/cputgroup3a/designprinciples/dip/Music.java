@@ -22,9 +22,7 @@ public class Music {
     private static List<Music> songList = new ArrayList();
 
     public Music() {
-    }
-
-    ; // default constructor
+    }; // default constructor
     
     public Music(String artistName, String songName, double price) {
         Music m = new Music();

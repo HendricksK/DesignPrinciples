@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.dip;
+package cputgroup3a.designprinciples.sip;
 
-import cputgroup3a.designprinciples.dip.service.Impl.MusicServiceImpl;
-import cputgroup3a.designprinciples.dip.service.MusicService;
+import cputgroup3a.designprinciples.sip.configuration.AppConfig;
+import cputgroup3a.designprinciples.sip.service.Impl.MusicServiceImpl;
+import cputgroup3a.designprinciples.sip.service.MusicServiceSip;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import static org.testng.Assert.*;
@@ -16,16 +17,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import cputgroup3a.designprinciples.dip.configuration.AppConfig;
-import org.testng.Assert;
 
 /**
  *
  * @author kurvin
  */
-public class dipTestCorrection {
+public class CorrectingSipTest {
     
-    public dipTestCorrection() {
+    public CorrectingSipTest() {
     }
 
     // TODO add test methods here.
@@ -34,31 +33,20 @@ public class dipTestCorrection {
     // @Test
     // public void hello() {}
     
-    public static MusicService musicService;
-    
-    @Test
-    public static void testPlay(){
-        musicService.playSong("Voodoo Chile (Slight Return)");
-    }
+    static MusicServiceSip mss;
     
     @Test
     public static void testDisplay(){
-        musicService.display();
-    }
-    
-    @Test
-    public static void testPurchase(){
-        musicService.buySong("Stir It Up", 12.50);
-        musicService.buySong("Brain Washing", 7.50);
-        Assert.assertEquals(12.56, 12.50, 0.3);
+        mss.displaySongList();
     }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        musicService = (MusicService) ctx.getBean("MusicService");
-        musicService = new MusicServiceImpl("Breaking Out, Breaking down","Bullet For My Valentine" ,12.56);
-        musicService = new MusicServiceImpl("Stir It Up","Bob Marley" ,12.56);
+        mss = (MusicServiceSip) ctx.getBean("MusicServiceSip");
+        mss = new MusicServiceImpl("Dark Side Of Me" ,"Coheed And Cambria" ,15.36);
+        mss = new MusicServiceImpl("Dance Gavin Dance", "Acceptance Speech" ,18.36);
+        
     }
 
     @AfterClass
