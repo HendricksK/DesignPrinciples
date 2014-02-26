@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.sip;
-
-import cputgroup3a.designprinciples.sip.service.MusicServiceSip;
-import cputgroup3a.designprinciples.sip.configuration.AppConfig;
-import cputgroup3a.designprinciples.sip.service.Impl.MusicServiceImpl;
+package cputgroup3a.designprinciples.isp;
+import cputgroup3a.designprinciples.isp.service.MusicServiceIsp;
+import cputgroup3a.designprinciples.isp.configuration.AppConfig;
+import cputgroup3a.designprinciples.isp.service.Impl.MusicServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import static org.testng.Assert.*;
@@ -22,9 +21,9 @@ import org.testng.annotations.Test;
  *
  * @author kurvin
  */
-public class CorrectingSipTest {
+public class CorrectingIspTest {
     
-    public CorrectingSipTest() {
+    public CorrectingIspTest() {
     }
 
     // TODO add test methods here.
@@ -33,9 +32,9 @@ public class CorrectingSipTest {
     // @Test
     // public void hello() {}
     
-    static MusicServiceSip mss;
-    static MusicDistributionSip msd;
-    static MusicConsumptionSip msc;
+    static MusicServiceIsp mss;
+    static MusicDistributionIsp msd;
+    static MusicConsumptionIsp msc;
     
     @Test
     public static void testPurchase(){
@@ -55,9 +54,9 @@ public class CorrectingSipTest {
     @BeforeClass
     public static void setUpClass() throws Exception {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        mss = (MusicServiceSip) ctx.getBean("MusicServiceSip");
-        msd = (MusicDistributionSip) ctx.getBean("MusicDistributeSip");
-        msc = (MusicConsumptionSip) ctx.getBean("MusicConsumptionSip");
+        mss = (MusicServiceIsp) ctx.getBean("MusicServiceIsp");
+        msd = (MusicDistributionIsp) ctx.getBean("MusicDistributeIsp");
+        msc = (MusicConsumptionIsp) ctx.getBean("MusicConsumptionIsp");
         mss = new MusicServiceImpl("Dark Side Of Me" ,"Coheed And Cambria" ,15.36);
         mss = new MusicServiceImpl("Acceptance Speech", "Dance Gavin Dance" ,18.36);
     }

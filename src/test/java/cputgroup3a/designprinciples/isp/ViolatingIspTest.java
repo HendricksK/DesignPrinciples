@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.sip;
+package cputgroup3a.designprinciples.isp;
 
+import cputgroup3a.designprinciples.sip.MusicIsp;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -18,9 +19,9 @@ import org.testng.annotations.Test;
  *
  * @author kurvin
  */
-public class ViolatingSipTest {
+public class ViolatingIspTest {
     
-    public ViolatingSipTest() {
+    public ViolatingIspTest() {
     }
 
     // TODO add test methods here.
@@ -28,7 +29,7 @@ public class ViolatingSipTest {
     //
     // @Test
     // public void hello() {}
-    static MusicSip m;
+    static MusicIsp m;
     
     @Test
     public static void testDisplay(){
@@ -48,8 +49,8 @@ public class ViolatingSipTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        m = new MusicSip("Kid Cudi", "Is There Any Love?", 5.06);
-        m = new MusicSip("Macklmore", "Neon Cathedral", 7.02);
+        m = new MusicIsp("Kid Cudi", "Is There Any Love?", 5.06);
+        m = new MusicIsp("Macklmore", "Neon Cathedral", 7.02);
     }
 
     @AfterClass

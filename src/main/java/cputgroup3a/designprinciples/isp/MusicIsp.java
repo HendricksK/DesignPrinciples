@@ -13,18 +13,18 @@ import java.util.List;
  *
  * @author kurvin
  */
-public class MusicSip {
+public class MusicIsp {
     
     public String artistName;
     public String songName;
     public Double price;
-    MusicSip m;
+    MusicIsp m;
     
-    public MusicSip(){};
-    private static List<MusicSip> songList = new ArrayList();
+    public MusicIsp(){};
+    private static List<MusicIsp> songList = new ArrayList();
     
-    public MusicSip(String artName, String songNme, Double songPrice){
-       m = new MusicSip();
+    public MusicIsp(String artName, String songNme, Double songPrice){
+       m = new MusicIsp();
        m.artistName = artName;
        m.songName = songNme;
        m.price = songPrice;

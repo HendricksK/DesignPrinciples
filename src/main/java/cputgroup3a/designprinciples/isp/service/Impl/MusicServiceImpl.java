@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.sip.service.Impl;
+package cputgroup3a.designprinciples.isp.service.Impl;
 
-import cputgroup3a.designprinciples.sip.MusicConsumptionSip;
-import cputgroup3a.designprinciples.sip.MusicDistributionSip;
-import cputgroup3a.designprinciples.sip.service.MusicServiceSip;
+import cputgroup3a.designprinciples.isp.MusicConsumptionIsp;
+import cputgroup3a.designprinciples.isp.MusicDistributionIsp;
+import cputgroup3a.designprinciples.isp.service.MusicServiceIsp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, MusicDistributionSip{
+public class MusicServiceImpl implements MusicServiceIsp, MusicConsumptionIsp, MusicDistributionIsp{
     
     private String songName;
     private String artist;
@@ -31,9 +31,24 @@ public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, M
     }
     
     @Override
+    public String getSongName(){
+        return songName;
+    }
+    
+    @Override
+    public String getArtist(){
+        return artist;
+    }
+    
+    @Override
+    public Double getPrice(){
+        return songPrice;
+    }
+    
+    @Override
     public boolean search(String name){
         for (int x = 0; x < songList.size(); x++) {
-            if (songList.get(x).songName.equals(name)) {
+            if (songList.get(x).getSongName().equals(name)) {
                 return true;
             }
         }
@@ -44,7 +59,7 @@ public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, M
     @Override
     public void play(String name){
         for (int x = 0; x < songList.size(); x++) {
-            if (songList.get(x).songName.equals(name)) {
+            if (songList.get(x).getSongName().equals(name)) {
                 System.out.println(name + " is now playing.");
                 break;
             }
@@ -57,10 +72,10 @@ public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, M
     @Override 
     public void purchase(String name, Double amountDue){
         for (int x = 0; x < songList.size(); x++) {
-            if (songList.get(x).songName.equals(name)) {
-                if (amountDue.equals(songList.get(x).songPrice)) {
-                    System.out.println("Your purchase has been succesful, you will now recieve your download of : " + songList.get(x).songName);
-                    System.out.println("From : " + songList.get(x).artist);
+            if (songList.get(x).getSongName().equals(name)) {
+                if (amountDue.equals(songList.get(x).getPrice())) {
+                    System.out.println("Your purchase has been succesful, you will now recieve your download of : " + songList.get(x).getSongName());
+                    System.out.println("From : " + songList.get(x).getArtist());
                     break;
                 } else System.out.println("Purchase was unsuccesful");
             }else if(search(name) == false){
@@ -73,9 +88,9 @@ public class MusicServiceImpl implements MusicServiceSip, MusicConsumptionSip, M
     @Override
     public void displaySongList(){
          for (int x = 0; x < songList.size(); x++) {
-            System.out.println(songList.get(x).artist);
-            System.out.println(songList.get(x).songName);
-            System.out.println(songList.get(x).songPrice);
+            System.out.println(songList.get(x).getArtist());
+            System.out.println(songList.get(x).getSongName());
+            System.out.println(songList.get(x).getPrice());
         }
     }
 }

@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-package cputgroup3a.designprinciples.sip.service;
+package cputgroup3a.designprinciples.isp.service;
 
-import cputgroup3a.designprinciples.sip.service.Impl.MusicServiceImpl;
+import cputgroup3a.designprinciples.dip.service.Impl.MusicServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +14,11 @@ import java.util.List;
  *
  * @author kurvin
  */
-public interface MusicServiceSip {
-    List<MusicServiceImpl> songList = new ArrayList();
+public interface MusicServiceIsp {
+    public List<MusicServiceIsp> songList = new ArrayList();
     public boolean search(String name);
     public void displaySongList();
+    public String getSongName();
+    public String getArtist();
+    public Double getPrice();
 }
